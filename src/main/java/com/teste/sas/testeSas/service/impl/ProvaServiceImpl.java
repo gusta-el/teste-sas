@@ -41,8 +41,6 @@ public class ProvaServiceImpl implements ProvaService{
 			gabarito.setGabarito(extractQuestoes(prova));
 		});
 		
-		
-		
 		return gabarito;
 	}
 

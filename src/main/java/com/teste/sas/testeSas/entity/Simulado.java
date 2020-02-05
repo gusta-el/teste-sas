@@ -18,11 +18,12 @@ public class Simulado {
 	private Long idSimulado;
 	private String nomeSimulado;
 	private LocalDate dataSimulado;
+	private Boolean simuladoEncerrado;
 	    
-    @OneToMany(mappedBy = "simulado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "simulado", fetch = FetchType.EAGER)
     private Set<Prova> provas;
-    
-	public Long getIdSimulado() {
+
+    public Long getIdSimulado() {
 		return idSimulado;
 	}
 
@@ -52,6 +53,14 @@ public class Simulado {
 
 	public void setProvas(Set<Prova> provas) {
 		this.provas = provas;
+	}
+
+	public Boolean getSimuladoEncerrado() {
+		return simuladoEncerrado;
+	}
+
+	public void setSimuladoEncerrado(Boolean simuladoEncerrado) {
+		this.simuladoEncerrado = simuladoEncerrado;
 	}
 	
 	

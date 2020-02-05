@@ -1,25 +1,37 @@
 package com.teste.sas.testeSas.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import com.teste.sas.testeSas.dto.SimuladoDTO.ProvaDTO;
-
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 @Setter
 @Getter
-@NoArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RankingDTO {
 
-	private String nomeSimulado;
-	private LocalDate dataDeAplicacao;
-	private Integer quantidadeDeProvas;
-	private List<ProvaDTO> provas;
+	String nomeSimulado;
+	List<AlunoDTO> ranking;
+	
+	@Getter
+	@Builder
+	@Setter
+	@FieldDefaults(level = AccessLevel.PRIVATE)
+	public static class AlunoDTO {
+		
+		@NonNull
+		String aluno;
+		@NonNull
+		Integer notaFinal;
+		@NonNull
+		Integer classificacaoGeral;
+			
+		
+	}
 	
 }

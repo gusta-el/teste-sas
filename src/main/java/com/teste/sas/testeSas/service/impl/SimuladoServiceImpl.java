@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class SimuladoServiceImpl implements SimuladoService {
 
 	@Autowired
-	SimuladoRepository simuladoRepository;
+	SimuladoRepository simuladoRepository;	
 	
 	@Override
 	public SimuladoDTO execute(Long idSimulado){

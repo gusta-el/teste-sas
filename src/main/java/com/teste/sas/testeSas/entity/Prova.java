@@ -19,10 +19,10 @@ public class Prova {
 	private Long idProva;
 	private String nomeProva;
 	
-    @OneToMany(mappedBy = "prova", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prova", fetch = FetchType.EAGER)
     private Set<Questao> questoes;
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_simulado")
     private Simulado simulado;
     

@@ -16,10 +16,10 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SimuladoDTO {
 	
-	private String nomeSimulado;
-	private LocalDate dataDeAplicacao;
-	private Integer quantidadeDeProvas;
-	private List<ProvaDTO> provas;
+	String nomeSimulado;
+	LocalDate dataDeAplicacao;
+	Integer quantidadeDeProvas;
+	List<ProvaDTO> provas;
 	
 	@Getter
 	@Builder

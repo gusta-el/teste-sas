@@ -3,10 +3,13 @@ package com.teste.sas.testeSas.entity;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity(name = "ALUNO")
 public class Aluno {
@@ -17,10 +20,14 @@ public class Aluno {
 
     private String nomeAluno;
     private String sobrenomeAluno;
-    private Double notaFinal;
+    private Integer notaFinal;
       
     @OneToMany(mappedBy = "aluno")
-    Set<ProvaAluno> provaAluno;
+    private Set<ProvaAluno> provaAluno;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_simulado")
+    private Simulado simulado;
     
 	public Long getIdAluno() {
 		return idAluno;
@@ -39,19 +46,24 @@ public class Aluno {
 	}
 	public void setSobrenomeAluno(String sobrenomeAluno) {
 		this.sobrenomeAluno = sobrenomeAluno;
-	}
-	public Double getNotaFinal() {
-		return notaFinal;
-	}
-	public void setNotaFinal(Double notaFinal) {
-		this.notaFinal = notaFinal;
-	}
-	
+	}	
 	public Set<ProvaAluno> getProvaAluno() {
 		return provaAluno;
 	}
 	public void setProvaAluno(Set<ProvaAluno> provaAluno) {
 		this.provaAluno = provaAluno;
+	}
+	public Simulado getSimulado() {
+		return simulado;
+	}
+	public void setSimulado(Simulado simulado) {
+		this.simulado = simulado;
+	}
+	public Integer getNotaFinal() {
+		return notaFinal;
+	}
+	public void setNotaFinal(Integer notaFinal) {
+		this.notaFinal = notaFinal;
 	}
 
     

@@ -14,7 +14,7 @@ public class UtilsTesteSas {
 	public static final String PROVA_NAO_ENCONTRADA_MESSAGE = "Prova não encontrada!";
 	public static final String QUESTAO_NAO_ENCONTRADA_MESSAGE = "Questão não encontrada!";
 	public static final String SIMULADO_NAO_ENCONTRADO_MESSAGE = "Simulado não encontrado!";
-		
+	public static final String SIMULADO_EM_ANDAMENTO_MESSAGE = "Simulado em andamento!";	
 	
 	public static void assertBusinessException(boolean expression, Supplier<String> message) {
 		Objects.requireNonNull(message);

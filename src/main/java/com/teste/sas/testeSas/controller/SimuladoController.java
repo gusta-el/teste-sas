@@ -28,7 +28,7 @@ public class SimuladoController {
     }
     
     @GetMapping(value="/{id_simulado}")
-    public ResponseEntity<SimuladoDTO> listarSimulado(@PathVariable("id_simulado") Long idSimulado) throws Exception {
+    public ResponseEntity<SimuladoDTO> listarSimulado(@PathVariable("id_simulado") Long idSimulado){
 
     	SimuladoDTO simulado = simuladoService.execute(idSimulado);
     	
