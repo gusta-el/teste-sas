@@ -14,5 +14,6 @@ respectivas notas em um simulado.
 Versão | Data | Descrição
 ------------------ | ------------ | -------------------------- |
 1.0 | 29-01-2020 | Construção APIs 1, 2, 3 e 4 |
+2.0 | 29-01-2020 | Construção APIs 5 e início dos testes unitários |
 
 ## Modelagem
