@@ -68,8 +68,12 @@ public class ProvaAluno{
 	public void setProvaFinalizada(Boolean provaFinalizada) {
 		this.provaFinalizada = provaFinalizada;
 	}
-
-	
-    
+	public ProvaAluno(Long idAlunoProva, Aluno aluno, Integer nota, Boolean provaFinalizada) {
+		super();
+		this.idAlunoProva = idAlunoProva;
+		this.aluno = aluno;
+		this.nota = nota;
+		this.provaFinalizada = provaFinalizada;
+	}    
 	
 }

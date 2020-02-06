@@ -13,7 +13,6 @@ import com.teste.sas.testeSas.entity.ProvaAluno;
 import com.teste.sas.testeSas.entity.Simulado;
 import com.teste.sas.testeSas.repository.AlunoRepository;
 import com.teste.sas.testeSas.repository.ProvaAlunoRepository;
-import com.teste.sas.testeSas.repository.ProvaRepository;
 import com.teste.sas.testeSas.repository.SimuladoRepository;
 import com.teste.sas.testeSas.service.ProvaAlunoService;
 import com.teste.sas.testeSas.utils.UtilsTesteSas;
@@ -32,9 +31,6 @@ public class ProvaAlunoServiceImpl implements ProvaAlunoService{
 	
 	@Autowired
 	AlunoRepository alunoRepository;
-	
-	@Autowired
-	ProvaRepository provaRepository;
 	
 	@Override
 	public void execute(Long idSimulado) {

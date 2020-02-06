@@ -1,6 +1,8 @@
 package com.teste.sas.testeSas.controller;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -56,6 +58,8 @@ public class RankingControllerTest {
             		)))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.nomeSimulado").value("Ciências da Natureza"));
+		
+		verify(rankingService, times(1)).execute(any());
 		
 	}
 	
