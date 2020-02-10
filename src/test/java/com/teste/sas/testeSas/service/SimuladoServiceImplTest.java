@@ -1,0 +1,54 @@
+package com.teste.sas.testeSas.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.teste.sas.testeSas.entity.Aluno;
+import com.teste.sas.testeSas.entity.ProvaAluno;
+import com.teste.sas.testeSas.entity.Simulado;
+import com.teste.sas.testeSas.handler.BusinessExpection;
+import com.teste.sas.testeSas.repository.SimuladoRepository;
+import com.teste.sas.testeSas.service.impl.SimuladoServiceImpl;
+import com.teste.sas.testeSas.utils.UtilsTesteSas;
+
+@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
+public class SimuladoServiceImplTest {
+
+	@Mock
+	SimuladoRepository simuladoRepository;	
+	
+	@InjectMocks
+	SimuladoServiceImpl simuladoService;
+
+    @Test
+    public void simuladoNaoEncontradoSimuladoServiceTest(){
+    	
+    	when(simuladoRepository.findById(any())).thenReturn(Optional.empty());
+    
+		try {
+			simuladoService.execute(1L);
+		} catch (BusinessExpection e) {
+			assertEquals(UtilsTesteSas.SIMULADO_NAO_ENCONTRADO_MESSAGE, e.getMessage());
+			verify(simuladoRepository, times(1)).findById(any());
+		}
+    	 
+    }
+    
+}
