@@ -17,3 +17,6 @@ Versão | Data | Descrição
 2.0 | 29-01-2020 | Construção APIs 5 e início dos testes unitários |
 
 ## Modelagem
+
+![modelagem_bd](https://user-images.githubusercontent.com/42786056/74131448-18807880-4bc3-11ea-8c02-ab5a014db349.jpg)
+
