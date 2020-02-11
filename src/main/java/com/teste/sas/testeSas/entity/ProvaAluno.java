@@ -76,4 +76,8 @@ public class ProvaAluno{
 		this.provaFinalizada = provaFinalizada;
 	}    
 	
+	public ProvaAluno() {
+		super();
+	}    
+	
 }
