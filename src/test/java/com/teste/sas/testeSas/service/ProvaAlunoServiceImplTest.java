@@ -47,17 +47,11 @@ public class ProvaAlunoServiceImplTest {
     @Test
     public void provaAlunoServiceExecuteTest(){
 
-    	Simulado simulado = new Simulado();
-    	simulado.setNomeSimulado("Ciências da Natureza");
+    	Simulado simulado = new Simulado("Ciências da Natureza", true);
     	simulado.setIdSimulado(1L);
-    	simulado.setSimuladoEncerrado(true);
     	
-    	Aluno aluno1 = new Aluno();
-    	aluno1.setIdAluno(1L);
-    	aluno1.setNomeAluno("Gustavo");
-    	Aluno aluno2 = new Aluno();
-    	aluno2.setIdAluno(2L);
-    	aluno2.setNomeAluno("Carmen");
+    	Aluno aluno1 = new Aluno(1L,"Gustavo");
+    	Aluno aluno2 = new Aluno(2L, "Carmen");
     	
     	List<ProvaAluno> provaAluno1 = Arrays.asList(new ProvaAluno(1L, aluno1, 550, true), new ProvaAluno(1L, aluno1, 200, true), new ProvaAluno(1L, aluno1, 100, true));
     	List<ProvaAluno> provaAluno2 = Arrays.asList(new ProvaAluno(2L, aluno2, 800, true), new ProvaAluno(2L, aluno2, 350, true), new ProvaAluno(2L, aluno2, 482, true));
@@ -98,8 +92,7 @@ public class ProvaAlunoServiceImplTest {
     @Test
     public void simuladoEmAndamentoProvaAlunoServiceTest(){
     	
-    	Simulado simulado = new Simulado();
-    	simulado.setSimuladoEncerrado(false);
+    	Simulado simulado = new Simulado("Ciências da Natureza", false);
     	
     	when(simuladoRepository.findById(any())).thenReturn(Optional.of(simulado));
     

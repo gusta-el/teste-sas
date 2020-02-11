@@ -62,6 +62,19 @@ public class Simulado {
 	public void setSimuladoEncerrado(Boolean simuladoEncerrado) {
 		this.simuladoEncerrado = simuladoEncerrado;
 	}
+
+	public Simulado(String nomeSimulado, Set<Prova> provas) {
+		super();
+		this.nomeSimulado = nomeSimulado;
+		this.provas = provas;
+	}
+
+	public Simulado(String nomeSimulado, Boolean simuladoEncerrado) {
+		super();
+		this.nomeSimulado = nomeSimulado;
+		this.simuladoEncerrado = simuladoEncerrado;
+	}
+	
 	
 	
 

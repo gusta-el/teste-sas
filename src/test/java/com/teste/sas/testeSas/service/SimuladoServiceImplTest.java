@@ -6,9 +6,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,10 +19,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.teste.sas.testeSas.entity.Aluno;
-import com.teste.sas.testeSas.entity.ProvaAluno;
+import com.teste.sas.testeSas.dto.SimuladoDTO;
+import com.teste.sas.testeSas.entity.Prova;
 import com.teste.sas.testeSas.entity.Simulado;
 import com.teste.sas.testeSas.handler.BusinessExpection;
 import com.teste.sas.testeSas.repository.SimuladoRepository;
@@ -37,6 +38,36 @@ public class SimuladoServiceImplTest {
 	@InjectMocks
 	SimuladoServiceImpl simuladoService;
 
+	@Test
+    public void simuladoServiceTest(){
+
+		Integer quantidadeDeProvas = 6;
+    	when(simuladoRepository.findById(any())).thenReturn(Optional.of(this.mockSimulados(quantidadeDeProvas)));
+    	    	
+    	SimuladoDTO simuladoDto = simuladoService.execute(1L);
+		assertEquals("Ciências da Natureza", simuladoDto.getNomeSimulado());
+		assertEquals(quantidadeDeProvas, simuladoDto.getQuantidadeDeProvas());
+		verify(simuladoRepository, times(1)).findById(any());
+		   	 
+    }
+
+	@Test
+    public void simuladosServiceTest(){
+		
+		Integer quantidadeDeProvas = 2;
+		Iterable<Simulado> simulados = IntStream.range(1, 3).mapToObj(quantidadeProvas -> {
+			return this.mockSimulados(quantidadeProvas);
+		}).collect(Collectors.toList());
+		
+    	when(simuladoRepository.findAll()).thenReturn(simulados);
+    	    	
+    	List<SimuladoDTO> simuladosDto = simuladoService.execute();
+		assertEquals("Ciências da Natureza", simuladosDto.get(1).getNomeSimulado());
+		assertEquals(quantidadeDeProvas, simuladosDto.get(1).getQuantidadeDeProvas());
+		verify(simuladoRepository, times(1)).findAll();
+		   	 
+    }
+	
     @Test
     public void simuladoNaoEncontradoSimuladoServiceTest(){
     	
@@ -51,4 +82,12 @@ public class SimuladoServiceImplTest {
     	 
     }
     
+	private Simulado mockSimulados(Integer quantidadeDeProvas) {
+
+		return new Simulado("Ciências da Natureza", LongStream.range(1, 1 + quantidadeDeProvas).mapToObj(i -> {
+			return new Prova(i, "Prova " + i);
+		}).collect(Collectors.toSet()));
+
+	}
+
 }

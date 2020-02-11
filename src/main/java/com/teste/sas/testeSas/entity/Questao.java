@@ -59,7 +59,14 @@ public class Questao {
 	public void setProva(Prova prova) {
 		this.prova = prova;
 	}
-
-
-	   
+	
+	public Questao(Long idQuestao, String enunciado, String complexidade, Character alternativaCorreta,
+			Integer numeroQuestao) {
+		super();
+		this.idQuestao = idQuestao;
+		this.enunciado = enunciado;
+		this.complexidade = complexidade;
+		this.alternativaCorreta = alternativaCorreta;
+		this.numeroQuestao = numeroQuestao;
+	}
 }

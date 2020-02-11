@@ -58,8 +58,7 @@ public class RankingServiceImplTest {
 	@Test
     public void rankingServiceTest(){
 		
-		Simulado simulado = new Simulado();
-		simulado.setNomeSimulado("Ciências da Natureza");
+		Simulado simulado = new Simulado("Ciências da Natureza", true);
 		
 		List<Aluno> alunos = IntStream.range(1, 10).mapToObj(i -> {
 			if(i == 1 || i == 2)

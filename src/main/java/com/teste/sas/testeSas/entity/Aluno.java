@@ -65,6 +65,17 @@ public class Aluno {
 	public void setNotaFinal(Integer notaFinal) {
 		this.notaFinal = notaFinal;
 	}
+	public Aluno(String nomeAluno, Integer notaFinal) {
+		super();
+		this.nomeAluno = nomeAluno;
+		this.notaFinal = notaFinal;
+	}
+	public Aluno(Long idAluno, String nomeAluno) {
+		super();
+		this.idAluno = idAluno;
+		this.nomeAluno = nomeAluno;
+	}
 
+	
     
 }

@@ -68,7 +68,20 @@ public class Prova {
 	public void setProvaAluno(Set<ProvaAluno> provaAluno) {
 		this.provaAluno = provaAluno;
 	}
-    
-    
+
+	public Prova(Long idProva, String nomeProva, Set<Questao> questoes) {
+		super();
+		this.idProva = idProva;
+		this.nomeProva = nomeProva;
+		this.questoes = questoes;
+	}
+
+	public Prova(Long idProva, String nomeProva) {
+		super();
+		this.idProva = idProva;
+		this.nomeProva = nomeProva;
+	}
+	
+	
     
 }
