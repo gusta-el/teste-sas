@@ -15,6 +15,7 @@ Versão | Data | Descrição
 ------------------ | ------------ | -------------------------- |
 1.0 | 29-01-2020 | Construção APIs 1, 2, 3 e 4 |
 2.0 | 29-01-2020 | Construção APIs 5 e início dos testes unitários |
+3.0 | 06-02-2020 | Modelagem BD e testes unitários |
 
 ## Modelagem
 
