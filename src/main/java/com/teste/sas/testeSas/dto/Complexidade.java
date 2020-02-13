@@ -15,7 +15,7 @@ public enum Complexidade {
 
 	FÁCIL("F", "FÁCIL", 15),
 	MÉDIA("M", "MÉDIA", 12),
-	DIFÍCIL("D", "DÍFICIL", 8);
+	DIFÍCIL("D", "DIFÍCIL", 8);
 
     String name;
     String normalized;

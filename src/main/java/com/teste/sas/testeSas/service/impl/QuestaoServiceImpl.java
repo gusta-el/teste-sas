@@ -59,13 +59,13 @@ public class QuestaoServiceImpl implements QuestaoService {
 		if (prova.getGabaritoAluno().equals(UtilsTesteSas.QUESTOES_BLANK))
 			score = 600;
 
-		if (prova.getGabaritoAluno().chars().mapToObj(alternativa -> (char) alternativa).allMatch(c -> c != ' '))
-			prova.setProvaFinalizada(true);
-
 		this.pontuarAcerto(prova, questao, score,
 				questao.getAlternativaCorreta().equals(resposta.getAlternativaSelecionada()));
 		provaAlunoRepository.save(this.prepararResposta(prova, resposta));
 
+		if (prova.getGabaritoAluno().chars().mapToObj(alternativa -> (char) alternativa).allMatch(c -> c != ' '))
+			prova.setProvaFinalizada(true);
+		
 		return questao;
 
 	}
