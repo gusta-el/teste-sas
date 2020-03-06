@@ -25,8 +25,7 @@ public class Prova {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_simulado")
     private Simulado simulado;
-    
-    
+        
     @OneToMany(mappedBy = "prova")
     Set<ProvaAluno> provaAluno;
 
